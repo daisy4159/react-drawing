@@ -17,17 +17,21 @@ import IconButton from "@mui/material/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 const drawerWidth: number = 240;
 
-const Drawer = styled(MuiDrawer)<DrawerProps>(({ theme, open }) => {
+const Drawer = styled(MuiDrawer, {
+  // shouldForwardProp: (prop) => prop !== "open",
+})<DrawerProps>(({ theme, open }) => {
   return {
     "& .MuiDrawer-paper": {
       position: "relative",
       whiteSpace: "nowrap",
       width: drawerWidth,
+      flexShrink: 0,
       transition: theme.transitions.create("width", {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
       }),
       boxSizing: "border-box",
+      anchor: "left",
       ...(!open && {
         overflowX: "hidden",
         transition: theme.transitions.create("width", {

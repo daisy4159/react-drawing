@@ -16,8 +16,10 @@ const drawerWidth: number = 240;
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
 }
-const AppBar = styled(MuiAppBar)<AppBarProps>(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
+const AppBar = styled(MuiAppBar, {
+  // shouldForwardProp: (prop) => prop !== "open",
+})<AppBarProps>(({ theme, open }) => ({
+  // zIndex: theme.zIndex.drawer + 1,
   transition: theme.transitions.create(["width", "margin"], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -52,7 +54,7 @@ export function MainAppBar({ drawerOpenHandler }: MainAppBarProps) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            Drawing with Konva
           </Typography>
           {/* <Button color="inherit">Login</Button> */}
         </Toolbar>
