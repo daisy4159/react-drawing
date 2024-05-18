@@ -2,7 +2,7 @@ import { Button, ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { Actions } from "../navigations/model";
 import { GiArrowCursor } from "react-icons/gi";
 import { BsPencil } from "react-icons/bs";
-import { FaRegCircle, FaLongArrowAltRight } from "react-icons/fa";
+import { FaRegCircle, FaLongArrowAltRight, FaDownload } from "react-icons/fa";
 import { RiRectangleLine } from "react-icons/ri";
 type DrawingMenuProps = {
   action: Actions;
@@ -72,13 +72,20 @@ export function DrawingMenu({
       >
         <FaLongArrowAltRight size="2rem" />
       </ToggleButton>
-      <Button variant="outlined">
+      <Button variant="outlined" className="hover:bg-violet-100 p-1">
         <input
-          className="w-8 h-8"
+          className="w-full h-full"
           type="color"
           value={fillColor}
           onChange={(e) => setFillColor(e.target.value)}
         />
+      </Button>
+      <Button
+        variant="outlined"
+        className="text-gray-600 hover:bg-violet-100"
+        onClick={() => setAction(Actions.DOWNLOAD)}
+      >
+        <FaDownload size="2rem" />
       </Button>
     </ToggleButtonGroup>
   );

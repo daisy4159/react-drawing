@@ -5,4 +5,5 @@ export enum Actions {
   CIRCLE = "CIRCLE",
   SCRIBBLE = "SCRIBBLE",
   ARROW = "ARROW",
+  DOWNLOAD = "DOWNLOAD",
 }

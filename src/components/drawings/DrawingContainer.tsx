@@ -3,14 +3,15 @@ import { DrawingPanel } from "./DrawingPanel";
 import { DrawingMenu } from "./DrawingMenu";
 import { useState } from "react";
 import { Actions } from "../navigations/model";
+
 export function DrawingContainer() {
   const [action, setAction] = useState<Actions>(Actions.SELECT);
-  const [fillColor, setFillColor] = useState<string>("");
+  const [fillColor, setFillColor] = useState<string>("red");
   return (
     <Box>
       <Card variant="outlined" sx={{ minHeight: 500 }}>
         <CardContent>
-          <DrawingPanel />
+          <DrawingPanel action={action} fillColor={fillColor} />
         </CardContent>
         <CardActions>
           <DrawingMenu
