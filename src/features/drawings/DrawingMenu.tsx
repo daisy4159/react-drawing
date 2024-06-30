@@ -1,5 +1,5 @@
 import { Button, ToggleButton, ToggleButtonGroup } from "@mui/material";
-import { Actions } from "../navigations/model";
+import { Actions } from "./model";
 import { GiArrowCursor } from "react-icons/gi";
 import { BsPencil } from "react-icons/bs";
 import { FaRegCircle, FaLongArrowAltRight, FaDownload } from "react-icons/fa";
@@ -22,7 +22,9 @@ export function DrawingMenu({
   ) => {
     console.log("newValue==", newValue);
   };
-
+  const a = [1, 2, 3, 4];
+  a[2] = 5;
+  console.log(a);
   return (
     <ToggleButtonGroup value={action} exclusive onChange={handleActionChange}>
       <ToggleButton

@@ -2,24 +2,18 @@ import { Box, Card, CardActions, CardContent } from "@mui/material";
 import { DrawingPanel } from "./DrawingPanel";
 import { DrawingMenu } from "./DrawingMenu";
 import { useState } from "react";
-import { Actions } from "../navigations/model";
+import { BondType } from "./utils/bond";
 
 export function DrawingContainer() {
-  const [action, setAction] = useState<Actions>(Actions.SELECT);
-  const [fillColor, setFillColor] = useState<string>("red");
+  const [bondType, setBondType] = useState<BondType>(BondType.Single);
   return (
     <Box>
       <Card variant="outlined" sx={{ minHeight: 500 }}>
         <CardContent>
-          <DrawingPanel action={action} fillColor={fillColor} />
+          <DrawingPanel bondType={bondType} />
         </CardContent>
         <CardActions>
-          <DrawingMenu
-            action={action}
-            setAction={setAction}
-            fillColor={fillColor}
-            setFillColor={setFillColor}
-          />
+          <DrawingMenu action={bondType} setAction={setBondType} />
         </CardActions>
       </Card>
     </Box>

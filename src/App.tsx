@@ -9,7 +9,9 @@ import {
   createTheme,
   styled,
 } from "@mui/material";
-import { DrawingContainer } from "./components/drawings/DrawingContainer";
+import { DrawingContainer } from "./features/chemDraw/DrawingContainer";
+import moment from "moment-timezone";
+
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
   open?: boolean;
 }>(({ theme, open }) => {
@@ -30,6 +32,14 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
 });
 
 function App() {
+  const uploadTime = moment("2024-05-21T21:51:59.649").toISOString();
+  console.log("upload time:", uploadTime);
+  const tz = moment.tz.guess();
+  const start = moment.tz("2024-05-21T21:51:59.649Z", tz);
+  const now = moment();
+
+  console.log("diff===========", now.diff(start, "hours"));
+  console.log("----tz--", tz);
   const [openDrawer, setOpenDrawer] = React.useState(false);
   const toggleDrawer = () => {
     setOpenDrawer(!openDrawer);

@@ -2,7 +2,7 @@ import Konva from "konva";
 import { KonvaPointerEvent } from "konva/lib/PointerEvents";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Arrow, Circle, Layer, Line, Rect, Stage } from "react-konva";
-import { Actions } from "../navigations/model";
+import { Actions } from "./model";
 import { v4 as uuid } from "uuid";
 
 const DRAWING_ACTIONS = [
